@@ -45,7 +45,10 @@ def main():
                 print("Game over!")
                 pygame.quit()
                 return
-                # Handle collision (e.g., end game, reduce health, etc.)
+            for shot in shots:
+                if shot.check_collision(asteroid):
+                    shot.kill()
+                    asteroid.kill()
 
         screen.fill((0, 0, 0))
         
